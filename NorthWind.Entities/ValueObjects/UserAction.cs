@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace NorthWind.Entities.ValueObjects
 {
-    public class UserAction(string User, string Description)
     public class UserAction(string user, string description)
+
     {
-        public DateTime CreateDateTime { get; } = DateTime.Now;
-        public string User => User;
-        public string Description => Description;
+        private readonly DateTime createdDateTime = DateTime.Now;
+
+        public DateTime GetCreatedDateTime()
+        {
+            return createdDateTime;
+        }
+
         public DateTime CreatedDateTime { get; } = DateTime.Now;
         public string User => user;
         public string Description => description;
     }
-}
